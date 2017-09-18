@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue循环和条件</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<!-- <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+</head>
+<script type="text/javascript" src="js/vue.js"></script>
+<body>
+	{{arr}}
+	数组：<br>
+	<ul v-if='bool'>
+		<li v-for='val in arr'>
+			{{val}} {{$index}}
+		</li>
+	</ul>
+<hr>
+<hr>
+	<!-- 注意json的循环 -->
+	json <br>
+	<ul v-if='bool'>
+		<li v-for='val in json'>
+			{{val}} {{$index}} {{$key}}
+		</li>
+	</ul>
+	<hr>
+	json2 <br>
+	<ul v-if='bool'>
+		<li v-for='(k,v) in json'>
+
+			{{k}} {{v}} {{$index}} {{$key}} 
+		</li>
+	</ul>
+</body>
+<script type="text/javascript">
+window.onload = function(){
+	var vm = new Vue({
+		el:'body',
+		data:{
+			bool:true,
+			arr:['red','green','yellow'],
+			json:{a:'blue',b:'green'}
+		}
+	});
+}
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+</head>
+<body>
+	<button v-on:click='sum'>点击1</button>
+	<p>被点击的次数：{{count1}}</p>
+	<hr>
+
+	<!-- 直接写函数体  html处理事件程序 -->
+	<button v-on:click='count2+=1'>点击2</button>
+	<p>被点击的次数：{{count2}}</p>
+
+	<hr>
+	<!--mouseup mousedown mouseover mouseout dblclick 什么事件都可以 -->
+	<button v-on:click='add'>添加颜色</button>
+	<ul>
+		<li v-for='val in arr'>
+			{{$index}} {{val}}
+		</li>
+	</ul>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:'body',
+			data:{
+				arr:['red','blue','yellow'],
+				count1:0,
+				count2:0
+			},
+			methods:{
+				// 注意一定要写this!!!
+				add:function(){
+					this.arr.push('cyan');
+				},
+				sum:function(){
+					this.count1 += 1;
+				}
+			}
+		});
+	}
+</script>
+
+</html>

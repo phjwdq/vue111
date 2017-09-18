@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue1练习</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+</head>
+<body>
+	<p>
+		{{pmsg}}
+	</p>
+	<input type="text" v-model="msg">
+    <input type="text" v-model="msg">
+	{{msg}}
+	<br>
+	<p>数组：{{arr}}</p>
+	<p>json串(不能正常打印)：{{json}}</p>
+	<p>number数字：{{msg1}}</p>
+	<p>boolean：{{msg2}}</p>
+	<p>null(不能打印):{{msg3}}</p>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			//一定要注意此处的元素是body!!!
+			el:"body",
+			data:{
+				pmsg:'合格考试Vue',
+				msg:'welcome',
+				msg1:2453,
+				msg2:true,
+				mag3:null,
+				arr:['apple','orange','green','red'],
+				json:{a:'red',b:'yellow'}
+			}
+		});
+	};
+</script>
+</html>
