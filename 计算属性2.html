@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算属性2</title>
+</head>
+<body>
+	<div id="box">
+		<button @click="add()">按钮</button>
+		<p>{{a}}</p>
+		<p>{{b}}</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				a:1
+			},
+			methods:{
+				add:function(){
+					this.b=10;
+				}
+			},
+			computed:{
+				b:{
+					get:function(){
+						return this.a+2;
+					},
+					set:function(val){
+						// 将10传给vue
+						this.a = val;
+					}
+				}
+			}
+		});
+	}
+</script>
+</html>

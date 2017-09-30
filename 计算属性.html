@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算属性</title>
+</head>
+<body>
+	<div id="box">
+		<button @click="add()">按钮</button>
+		<p>{{a}}</p>
+		<p>{{b}}</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:'#box',
+			data:{
+				a:1,
+			},
+			methods:{
+				add:function(){
+					this.a++;
+				}
+			},
+			computed:{
+				// 注意b是属性！！
+				// conputed中的属性b可以写业务逻辑！！
+				b:function(){
+					return this.a+1;
+				}
+			}
+		});
+
+	}
+	
+</script>
+</html>
