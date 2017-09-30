@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去除花括号闪烁2</title>
+	<style>
+		/*[v-text]{
+			display: none;
+		}*/
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p v-text="str1"></p>
+		<p v-html="str2"></p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				str1:'ppppppp',
+				str2:'<strong>强调</strong>'
+			}
+		});
+	}
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去除花括号闪烁</title>
+	<style>
+		[v-cloak]{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<!-- v-cloak 用于大块的代码中去除{}闪烁 -->
+	<div id="box" v-cloak>
+		<p>{{arr}}</p>
+		<p>{{str}}</p>
+	</div>
+
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				arr:[2,3,true,'hjk'],
+				str:'nmn'
+			},
+			methods:{
+
+			}
+		});
+	}
+</script>
+</html>
