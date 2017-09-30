@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue生命周期2</title>
+	<style>
+		[v-cloak]{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" v-cloak>
+		<p>{{str}}</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				str:'welcome vue '
+			},
+			methods:{
+
+			},
+			created:function(){
+				alert("创建vue的实例");
+			},
+			beforeCompile:function(){
+				alert("编译之前");
+			},
+			compiled:function(){
+				alert("编译之后");
+			},
+			ready:function(){
+				alert("插入到文档中");
+			},
+			beforeDestroy:function(){
+				alert("销毁之前");
+			},
+			destroyed:function(){
+				alert("销毁vue实例")
+			}
+		});
+		alert(vm.str);//welcome vue
+		document.onclick = function(){
+			alert("点击销毁vue的实例vm");
+			vm.$destroy();
+			alert(vm.str);//welcome vue
+		}
+	}
+
+	
+</script>
+</html>

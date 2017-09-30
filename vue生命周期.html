@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue生命周期</title>
+</head>
+<body>
+	<div id="box">
+		{{str}}
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				str:'vue welcome'
+			},
+			methods:{
+
+			},
+			created:function(){
+				alert("vue的实例vm已经创建");
+			},
+			beforeCompile:function(){
+				alert("编译之前");
+			},
+			compiled:function(){
+				alert("编译之后");
+			},
+			ready:function(){
+				alert("数据插入到文档中");
+			},
+			beforeDestroy:function(){
+				alert("销毁之前");
+			},
+			destroyed:function(){
+				alert("销毁之后");
+			}
+		});
+	} 
+</script>
+</html>
