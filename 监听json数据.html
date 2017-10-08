@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>监听json数据</title>
+</head>
+<body>
+	<div id="box">
+		<p>{{strJson | json}}</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:'#box',
+			data:{
+				strJson:{'name':'Mary','age':'22'}
+			},
+			methods:{
+
+			}
+		});
+		// 对json的监听，必须带上{deep:true}
+		vm.$watch('strJson',function(){
+			alert('strJson.name变成了'+this.strJson.name);
+		},{deep:true});
+		
+		document.onclick = function(){
+			vm.strJson.name = 'Bob';
+		};
+	}
+</script>
+</html>

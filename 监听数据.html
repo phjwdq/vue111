@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>监听数据</title>
+</head>
+<body>
+	<div id="box">
+		<p>{{a}}</p>
+		<p>{{b}}</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:'#box',
+			data:{
+				a:11,
+				b:00
+			},
+			methods:{
+
+			}
+		});
+		vm.$watch('a',function(){
+			alert('a变成了'+this.a);
+		});
+		document.onclick = function(){
+			vm.a = 9999;
+			vm.b = vm.a+1;
+		};
+	}
+</script>
+</html>
