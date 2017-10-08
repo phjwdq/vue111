@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器补充</title>
+</head>
+<body>
+	<div id="box">
+		<p>倒数两个:</p>
+		<p v-text='arr | limitBy 2 arr.length-2'>倒数两个</p>
+		<p>取中间的两个:</p>
+		<p v-text='arr | limitBy 2 2'></p>
+		ul数据：
+		<ul>
+			<li v-for="item in arr | limitBy 2">
+				{{item}}
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				arr:[12,3,4,5,6,7]
+			},
+			methods:{
+
+			}
+		});
+	}
+	
+</script>
+</html>

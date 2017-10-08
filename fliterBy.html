@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fliterBy</title>
+</head>
+<body>
+	<div id="box">
+		<input type="text" v-model="str">
+		<ul>
+			<li v-for="item in arr | filterBy str ">
+				{{item}}
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:"#box",
+		data:{
+			arr:['width','height','orange','apple','background'],
+			str:''
+		},
+		methods:{
+			
+		}
+	});
+</script>
+</html>

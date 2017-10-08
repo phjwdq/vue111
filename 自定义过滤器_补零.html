@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义过滤器_补零</title>
+</head>
+<body>
+	<div id="box">
+		<input type="text" v-model="num">
+		<p>{{num}}</p>
+		<p>{{num | toDou '串' 788}}</p>
+		
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	Vue.filter('toDou',function(n,a,b){
+		alert(a + b);
+		return n < 10 ? '0'+n : n;
+	});
+	var vm = new Vue({
+		// el:'#box',
+		data:{
+			num:''
+		},
+		methods:{
+
+		}
+	}).$mount('#box'); 
+</script>
+</html>

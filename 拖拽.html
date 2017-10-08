@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<style>
+		/*.div{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}*/
+	</style>
+</head>
+<body>
+	<div id="box">
+		<!-- <div v-drag class="div"></div> -->
+		 <div v-drag :style="{width:'100px', height:'100px', background:'blue', position:'absolute', right:0, top:0}"></div>
+		<!-- <div v-drag :style="{width: '200px',height: '200px',backgroundColor: 'red',position: 'absolute',top: 0,left: 0}"></div> -->
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	Vue.directive('drag',function(){
+		var oDiv = this.el;
+		oDiv.onmousedown = function(e){
+			// console.log(oDiv);
+			var disx = e.clientX - oDiv.offsetLeft;
+			var disy = e.clientY - oDiv.offsetTop;
+
+			document.onmousemove = function(e){
+				var lx = e.clientX - disx;
+				var ty = e.clientY - disy;
+				oDiv.style.left = lx + 'px';
+				oDiv.style.top = ty + 'px';
+			};
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				// oDiv.onmousedown = null;
+				// document.onmouseup = null;
+			};
+		};
+	});
+
+	var vm = new Vue({
+		el:'#box',
+		data:{
+
+		},
+		methods:{
+
+		}
+
+	});
+</script>
+</html>

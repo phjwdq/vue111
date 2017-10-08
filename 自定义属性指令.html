@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义指令</title>
+</head>
+<body>
+	<div id="box">
+		<!-- 扩展了html的语法 必须写v-指令名称 -->
+		<p v-red>{{msg}}</p>
+		<p>hjjkll</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	Vue.directive('red',function(){
+		// this.el 是原生的DOM元素
+		this.el.style.backgroundColor = 'red';
+	});
+	var vm = new Vue({
+		el:"#box",
+		data:{
+			msg:'welcome'
+		},
+		methods:{
+
+		}
+	});//.$mount('#box')
+</script>
+</html>

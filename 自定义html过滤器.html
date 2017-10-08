@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义html过滤器</title>
+</head>
+<body>
+	<div id="box">
+		<input type="text" v-model="msg | filterHtml">
+		<p v-html="msg"></p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	// 双向过滤器
+	Vue.filter('filterHtml',{
+			read:function(str){//model -> view
+				console.log(str);
+				console.log(str.replace(/<[^<]+>/g,''))
+				return str.replace(/<[^<+]>/g,'');
+			},
+			// write不执行？？
+			write:function(str){//view -> model
+				console.log(str);
+	
+			}
+		});
+	var vm = new Vue({
+		data:{
+			msg:'<strong>welcome</strong>'
+		},
+		methods:{
+
+		}
+	}).$mount('#box');
+</script>
+</html>

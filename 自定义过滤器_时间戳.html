@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义过滤器_时间戳</title>
+</head>
+<body>
+	<div id="box">
+		{{d}}
+		<br>
+		{{d | date}}
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	Vue.filter('date',function(d){
+		var t = new Date(d);
+		return t.getFullYear(t) + '年' + (t.getMonth()+1) + '月' + t.getDate() + '日' + t.getHours() + '时' + t.getMinutes() + '分' + t.getSeconds() + '秒';
+	})
+	var vm = new Vue({
+		data:{
+			d:Date.now()
+		},
+		methods:{
+
+		}
+	}).$mount('#box');
+</script>
+</html>
